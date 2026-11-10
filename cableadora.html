@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructivo: Cableadora - Prysmian</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="video-page sidebar-open">
+
+    <!-- Encabezado Superior Fijo -->
+    <header class="header-video header-animate">
+        <button class="btn-back" onclick="window.location.href='index.html'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Volver al Menú
+        </button>
+        <h1>Módulo: Cableadora</h1>
+    </header>
+
+    <!-- Botón Fijo Izquierdo (Secciones) -->
+    <button id="toggle-sidebar-btn" class="sidebar-toggle-btn" title="Mostrar secciones">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span>Secciones</span>
+    </button>
+
+    <!-- Botón Fijo Derecho (Opciones de Video) -->
+    <button id="toggle-right-sidebar-btn" class="sidebar-toggle-btn-right" title="Mostrar opciones de video">
+        <span>Opciones</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 10 20 15 15 20"></polyline>
+            <path d="M4 4v7a4 4 0 0 0 4 4h12"></path>
+        </svg>
+    </button>
+
+    <!-- Panel Lateral Izquierdo (Secciones/Capítulos) -->
+    <aside id="chapters-sidebar" class="chapters-sidebar">
+        <div class="sidebar-header">
+            <h3>Partes del Proceso</h3>
+            <button id="close-sidebar-btn" class="btn-close-sidebar" title="Ocultar menú" aria-label="Cerrar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <button class="chapter-btn" data-time="27">
+                <span class="chapter-time">0:27</span>
+                <span class="chapter-title">1. USO CESTAS</span>
+            </button>
+            <button class="chapter-btn" data-time="39">
+                <span class="chapter-time">0:39</span>
+                <span class="chapter-title">2. ENHEBRADO DESDE CESTAS</span>
+            </button>
+            <button class="chapter-btn" data-time="73">
+                <span class="chapter-time">1:13</span>
+                <span class="chapter-title">3. CARGUE DEL EMBOBINADOR</span>
+            </button>
+            <button class="chapter-btn" data-time="125">
+                <span class="chapter-time">2:05</span>
+                <span class="chapter-title">4. DESCARGUE DEL EMBOBINADOR</span>
+            </button>
+            <button class="chapter-btn" data-time="217">
+                <span class="chapter-time">3:37</span>
+                <span class="chapter-title">5. VERIFICACIÓN Y ARRANQUE</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Panel Lateral Derecho con 10 Opciones de Video -->
+    <aside id="options-sidebar" class="options-sidebar">
+        <div class="sidebar-header">
+            <h3>Módulos de Video</h3>
+            <button id="close-right-sidebar-btn" class="btn-close-sidebar" title="Ocultar menú" aria-label="Cerrar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <button class="video-change-btn active" data-video="assets/videos/Cableadora 237.mp4">
+                <span class="chapter-time">Video Principal</span>
+                <span class="chapter-title">Explicación General de Operación</span>
+            </button>
+            <button class="video-change-btn" data-video="assets/videos/Opcion1.mp4">
+                <span class="chapter-time">Opción 01</span>
+                <span class="chapter-title">1. Soldador manual
+                </span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Área del Video -->
+    <main class="video-section fade-in" id="main-content">
+        <div class="video-wrapper" id="video-container">
+            <video id="main-video" class="instructive-video" controls controlsList="nofullscreen">
+                <source id="video-source" src="https://prysmiangroup-my.sharepoint.com/:v:/r/personal/sa_dados01co_prysmian_com/Documents/Archivos%20multimedia/Cableadora%20237.mp4?d" type="video/mp4">
+                Tu navegador no soporta la reproducción de video local.
+            </video>
+
+            <button type="button" class="video-fullscreen-btn" id="video-fullscreen-btn" aria-label="Activar pantalla completa" title="Pantalla completa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+                    <path d="M16 3h3a2 2 0 0 1 2 2v3"></path>
+                    <path d="M8 21H5a2 2 0 0 1-2-2v-3"></path>
+                    <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+                </svg>
+            </button>
+
+            <!-- Capa interactiva HUD Modal (Sincronizada con IDs) -->
+            <div id="interactive-layer" class="interactive-overlay" style="display: none;">
+                <div class="interactive-content hud-estilo">
+                    <div class="hud-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <h3 id="interactive-title">Punto de Decisión</h3>
+                    </div>
+                    <div class="hud-body">
+                        <img id="interactive-image" src="" alt="Demostración visual" style="display: none; width: 100%; max-height: 200px; object-fit: cover; border-radius: 6px; margin-bottom: 10px;" />
+                        <p id="interactive-text">Verifique los parámetros indicados antes de reanudar el proceso de la máquina.</p>
+                    </div>
+                    <div class="interactive-buttons">
+                        <button type="button" class="btn-hud-action btn-resume" id="btn-resume">Reanudar Video</button>
+                        <a href="#" target="_blank" class="btn-hud-action btn-details" id="btn-help">Manual Técnico</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Lateral HUD Flotante (Sincronizado) -->
+            <div id="hud-panel-flotante" class="hud-panel" style="display: none; position: absolute; right: 20px; top: 35%; z-index: 9999;">
+                <button class="hud-btn" id="btn-hud-flotante" type="button" style="pointer-events: auto; cursor: pointer;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span id="hud-flotante-texto">Seguridad</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

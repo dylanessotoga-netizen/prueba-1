@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructivo: Trefiladora - Prysmian</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="video-page sidebar-open">
+
+    <!-- Encabezado Superior Fijo -->
+    <header class="header-video header-animate">
+        <button class="btn-back" onclick="window.location.href='index.html'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Volver al Menú
+        </button>
+        <h1>Módulo: Trefiladora</h1>
+    </header>
+
+    <!-- Botón Fijo para abrir el menú si está oculto (No se desplaza con el scroll) -->
+    <button id="toggle-sidebar-btn" class="sidebar-toggle-btn" title="Mostrar secciones">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span>Secciones</span>
+    </button>
+
+    <!-- Panel Lateral Desplegable por debajo del Header -->
+    <aside id="chapters-sidebar" class="chapters-sidebar">
+        <div class="sidebar-header">
+            <h3>Partes del Proceso</h3>
+            <button id="close-sidebar-btn" class="btn-close-sidebar" title="Ocultar menú" aria-label="Cerrar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <button class="chapter-btn" data-time="0">
+                <span class="chapter-time">00:00</span>
+                <span class="chapter-title">1. Introducción e Inspección Previa</span>
+            </button>
+            <button class="chapter-btn" data-time="45">
+                <span class="chapter-time">00:45</span>
+                <span class="chapter-title">2. Protocolo de Seguridad EPP</span>
+            </button>
+            <button class="chapter-btn" data-time="120">
+                <span class="chapter-time">02:00</span>
+                <span class="chapter-title">3. Enhebrado de Hilo de Cobre</span>
+            </button>
+            <button class="chapter-btn" data-time="210">
+                <span class="chapter-time">03:30</span>
+                <span class="chapter-title">4. Ajuste de Parámetros y Tensiones</span>
+            </button>
+            <button class="chapter-btn" data-time="300">
+                <span class="chapter-time">05:00</span>
+                <span class="chapter-title">5. Encendido y Monitoreo</span>
+            </button>
+            <button class="chapter-btn" data-time="415">
+                <span class="chapter-time">06:55</span>
+                <span class="chapter-title">6. Solución de Atascos Frecuentes</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Área del Video que se desplaza hacia la derecha -->
+    <main class="video-section fade-in" id="main-content">
+        <div class="video-wrapper" id="video-container">
+            <video id="main-video" class="instructive-video" controls controlsList="nofullscreen">
+                <source src="assets/videos/Cableadora 237.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video local.
+            </video>
+
+            <button type="button" class="video-fullscreen-btn" id="video-fullscreen-btn" aria-label="Activar pantalla completa" title="Pantalla completa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+                    <path d="M16 3h3a2 2 0 0 1 2 2v3"></path>
+                    <path d="M8 21H5a2 2 0 0 1-2-2v-3"></path>
+                    <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+                </svg>
+            </button>
+
+            <!-- Capa interactiva HUD Modal -->
+            <div id="interactive-layer" class="interactive-overlay">
+                <div class="interactive-content hud-estilo">
+                    <div class="hud-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <h3 id="interactive-title">Punto de Decisión</h3>
+                    </div>
+                    <div class="hud-body">
+                        <p>Verifique los parámetros indicados antes de reanudar el proceso de la máquina.</p>
+                    </div>
+                    <div class="interactive-buttons">
+                        <button class="btn-hud-action btn-resume" id="btn-resume">Reanudar Video</button>
+                        <button class="btn-hud-action btn-details" id="btn-help">Manual Técnico</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Lateral HUD interno -->
+            <div class="hud-panel">
+                <button class="hud-btn" onclick="mostrarInteraccion('Seguridad')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Seguridad</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
